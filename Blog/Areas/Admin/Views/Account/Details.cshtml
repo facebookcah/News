@@ -1,0 +1,58 @@
+﻿@model Blog.Domains.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: white;
+        }
+
+    h2 {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+    }
+</style>
+<h2>Chi tiết</h2>
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Model.Email
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("index","Account",new { id=Model.Id})" class="btn btn-warning">Quay lại</a>
+</p>
