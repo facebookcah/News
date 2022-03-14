@@ -44,15 +44,48 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.PassWord)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Password)
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @if (Model.Type == true)
+            {
+                <p>Admin</p>
+            }
+            else
+            {
+                <p>Khách hàng</p>
+
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Status == true)
+            {
+                <p>Hoạt động</p>
+            }
+            else
+            {
+                <p>Không hoạt động</p>
+
+            }
+
         </dd>
 
     </dl>
 </div>
 <p>
+    <a href="@Url.Action("edit","Account",new { id=Model.Id})" class="btn btn-primary">Sửa</a>
+
     <a href="@Url.Action("index","Account",new { id=Model.Id})" class="btn btn-warning">Quay lại</a>
 </p>

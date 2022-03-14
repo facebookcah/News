@@ -24,7 +24,7 @@
 </style>
 <h2>Danh sách</h2>
 
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Id)
@@ -39,7 +39,7 @@
             @Html.DisplayNameFor(model => model.CommentText)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CommentTime)
+            @Html.DisplayNameFor(model => model.DateTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -55,7 +55,15 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Post.Title)
+                @if (item.Post.Title.Length > 30)
+                {
+                    var title = item.Post.Title.Substring(0, 30) + "...";
+                    <p>@title</p>
+                }
+                else
+                {
+                    <p>@item.Post.Title</p>
+                }
             </td>
 
             <td>
@@ -66,7 +74,7 @@
                 @Html.DisplayFor(modelItem => item.CommentText)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CommentTime)
+                @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
                 @if (item.Status == 0)

@@ -95,3 +95,9 @@
         </div>
     }
 </div>
+@if(ViewBag.Error!=null)
+            {
+                <script>
+                    alert("Không thể xóa (Danh mục đang có bài viết đã được xuất bản)");
+                </script>
+            }

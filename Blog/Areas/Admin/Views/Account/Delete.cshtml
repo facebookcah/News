@@ -29,21 +29,52 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.PassWord)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Password)
+            @Html.DisplayFor(model => model.PassWord)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
 
+        <dd>
+            @if (Model.Type == true)
+            {
+                <p>Admin</p>
+            }
+            else
+            {
+                <p>Khách hàng</p>
+
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Status == true)
+            {
+                <p>Hoạt động</p>
+            }
+            else
+            {
+                <p>Không hoạt động</p>
+
+            }
+
+        </dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            <a href="@Url.Action("index","Account")" class="btn btn-warning">Trở lại</a>
         </div>
     }
 </div>

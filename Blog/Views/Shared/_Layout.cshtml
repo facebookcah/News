@@ -499,19 +499,27 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">Just Blog</a>
+            <a class="navbar-brand" href="@Url.Action("Index","Post")">Just Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> Font Awesome fontawesome.com -->
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
-                    <li class="nav-item">@Html.ActionLink("Most Viewed Posts", "MostViewedPosts", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
-                    <li class="nav-item">@Html.ActionLink("Lastest Post", "LastestPost", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
-                    <li class="nav-item">@Html.ActionLink("Entity Framework", "EFCategory", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
-                    <li class="nav-item">@Html.ActionLink("MVC", "MVC", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
-                    <li class="nav-item">@Html.ActionLink("Login Admin", "Login", "admin/post/login", "Post", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+                    <li class="nav-item">@Html.ActionLink("Trang chủ", "Index", "Post", "", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+                    <li class="nav-item">@Html.ActionLink("Xem nhiều nhất", "MostView", "Post", "", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+                    <li class="nav-item">@Html.ActionLink("Mới nhất", "Newest", "Post", "", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+                  @if (Session["username"] == null)
+                    {
+                        <li class="nav-item">@Html.ActionLink("Đăng nhập", "Login", "LoginClient", "", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+
+                    }
+                    else
+                    {
+                        Session["username"] = null;
+                        <li class="nav-item">@Html.ActionLink("Đăng xuất", "Logout", "LoginClient", "", new { @class = "nav-link px-lg-3 py-3 py-lg-4" })</li>
+
+                    }
 
                 </ul>
             </div>
@@ -525,7 +533,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">Thông tin nhanh nhất</span>
                     </div>
                 </div>
             </div>

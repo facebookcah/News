@@ -80,6 +80,4 @@ D:\ASP\Blog\obj\Debug\Blog.csproj.CoreCompileInputs.cache
 D:\ASP\Blog\obj\Debug\Blog.csproj.CopyComplete
 D:\ASP\Blog\obj\Debug\Blog.dll
 D:\ASP\Blog\obj\Debug\Blog.pdb
-D:\ASP\Blog\obj\Debug\Blog.Migrations.updatedb1.resources
-D:\ASP\Blog\obj\Debug\Blog.csproj.GenerateResource.cache
 D:\ASP\Blog\obj\Debug\Blog.csproj.AssemblyReference.cache

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -45,6 +46,10 @@ namespace Blog.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TaiKhoan taiKhoan)
         {
+            taiKhoan.CreatedOn = DateTime.Now;
+            taiKhoan.UpdatedOn = DateTime.Now;
+            taiKhoan.Status = true;
+
             if (ModelState.IsValid)
             {
                 db.TaiKhoans.Add(taiKhoan);
@@ -75,7 +80,7 @@ namespace Blog.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,UserName,Password")] TaiKhoan taiKhoan)
+        public ActionResult Edit( TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {

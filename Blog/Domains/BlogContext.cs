@@ -25,18 +25,6 @@ namespace Blog.Domains
                 .HasMany(e => e.Tags)
                 .WithMany(e => e.Posts)
                 .Map(m => m.ToTable("PostTagMap").MapLeftKey("PostId").MapRightKey("TagId"));
-
-            modelBuilder.Entity<TaiKhoan>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoan>()
-                .Property(e => e.UserName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoan>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
         }
     }
 }

@@ -6,6 +6,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("Post")]
     public partial class Post
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -17,29 +18,28 @@
 
         public int Id { get; set; }
 
-        [StringLength(500,ErrorMessage ="Tối đa 500 kí tự !")]
+        [StringLength(500,ErrorMessage ="Không quá 500 kí tự")]
         [Display(Name = "Tiêu đề")]
 
         public string Title { get; set; }
 
         [StringLength(500)]
         public string ShortDescription { get; set; }
+        [Display(Name = "Nội dung")]
 
         [Column(TypeName = "ntext")]
-        [Display(Name = "Nội dung")]
         public string PostContent { get; set; }
 
         [StringLength(225)]
         public string UrlSlug { get; set; }
-        [Display(Name = "Trạng thái")]
+        [Display(Name = "Trạng thái đăng")]
 
         public bool? Published { get; set; }
         [Display(Name = "Ngày đăng")]
 
-        public DateTime PostedOn { get; set; }
+        public DateTime? PostedOn { get; set; }
 
-        public DateTime? Modifiled { get; set; }
-
+        public bool? Modifiled { get; set; }
         [Display(Name = "Lượt xem")]
 
         public int? ViewCount { get; set; }
@@ -48,20 +48,22 @@
         public int? RateCount { get; set; }
 
         public int? TotalRate { get; set; }
-        [Display(Name = "Tiêu đề bài viết")]
+
+        public double? Rate { get; set; }
+        [Display(Name = "Danh mục")]
 
         public int? CategoryId { get; set; }
-       
 
         public byte? Status { get; set; }
         [Display(Name = "Ngày tạo")]
 
         [Column(TypeName = "datetime2")]
-        public DateTime CreatedOn { get; set; }
-        [Display(Name = "Ngày cập nhật")]
+        public DateTime? CreatedOn { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime UpdatedOn { get; set; }
+        [Display(Name = "Ngày cập nhật")]
+
+        public DateTime? UpdatedOn { get; set; }
 
         public virtual Category Category { get; set; }
 

@@ -57,14 +57,15 @@
         </td>
        
         <td>
-            @if (item.Description.Length > 10)
+            @if (item.Description==null || item.Description.Length <= 10)
             {
-                var description = item.Description.Substring(0, 10) + " ...";   
-                @description
+            <p>@item.Description</p>
+
             }
-            else
+            else if (item.Description.Length > 10)
             {
-                @item.Description
+                var description = item.Description.Substring(0, 10) + " ...";
+                @description
 
             }
         </td>
